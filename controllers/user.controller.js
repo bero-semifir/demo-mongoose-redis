@@ -15,7 +15,7 @@ function sendError(error, res) {
 router.get('/users/search', async (req, res) => {
 
     // Objet pour la recherche ($match de Mongo)
-    let searchTerms = {}
+    let searchTerms = {};
 
     // récup de la requête HTTP pour remplir les champs de la recherche
     req.query.name ? searchTerms.name = req.query.name : null;
