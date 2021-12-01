@@ -11,6 +11,25 @@ function sendError(error, res) {
     res.status(500).json({ status: 500, ok: false });
 }
 
+// Pour faire une recherche spécifique sur un user
+router.get('/users/search', async (req, res) => {
+
+    // Objet pour la recherche ($match de Mongo)
+    let searchTerms = {}
+
+    // récup de la requête HTTP pour remplir les champs de la recherche
+    req.query.name ? searchTerms.name = req.query.name : null;
+    req.query.email ? searchTerms.email = req.query.email : null;
+
+    // find avec la recherche
+    const resp = await UserModel.find(searchTerms);
+    
+    if(resp) res.status(200);
+    else res.status(404);
+
+    res.json(resp);
+})
+
 // définition de route '/users
 router.route('/users')
     // Recup tous les users
@@ -67,5 +86,3 @@ router.route('/users/:id')
     })
 
 module.exports = router;
-
-
