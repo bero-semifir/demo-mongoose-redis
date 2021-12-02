@@ -6,6 +6,7 @@ const helmet = require('helmet');
 require('dotenv').config();
 const app = express();
 const UserController = require('./controllers/user.controller')
+const PhotoController = require('./controllers/photo.controller')
 
 // Connection à MongoDB
 require("./config/mongo.config");
@@ -17,6 +18,7 @@ app.use(helmet());       // Sécurisation des headers HTTP
 
 // Injection de la route dans l'app express
 app.use(UserController);
+app.use(PhotoController);
 
 // assigne un port à l'application à partir des variables d'environnement
 // si il n'y a pas de variable le port par défault est 3000

@@ -26,12 +26,14 @@
   },
   "homepage": "https://github.com/benoitsemifir/demo-mongoose-redis#readme",
   "dependencies": {
+    "axios": "^0.24.0",
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
     "mongoose": "^6.0.14",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "redis": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
