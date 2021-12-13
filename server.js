@@ -2,6 +2,7 @@ require('colors');
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const logger = require('./config/logger.config');
 // lecture du fichier .env pour set les variables d'environnements
 require('dotenv').config();
 const app = express();
@@ -15,6 +16,7 @@ require("./config/mongo.config");
 app.use(morgan('dev'));  // Affiche les requêtes dans la console
 app.use(express.json()); // Gestion des JSON par express
 app.use(helmet());       // Sécurisation des headers HTTP
+app.use(logger);
 
 // Injection de la route dans l'app express
 app.use(UserController);
